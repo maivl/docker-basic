@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>First Vue Website</title>
+    <meta name="charset" content="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Yuri Dubler" />
+    <meta name="description" content="First Vue Website" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/style.css" /> -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand&display=swap"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <body>
+      <div id="vue-view">{{name}}
+        <h2 v-text="name"></h2>
+      </div>
+      
+    <script
+      type = "text/javascript"
+      src = "https://unpkg.com/vue"></script>
+    </script>
+    <script
+    type = "text/javascript">
+        var view = new Vue({
+            el:'#vue-view',
+            data:{
+                name:'Yuri Dubler'
+            }
+        });
+    </script>
+  </script>
+  </body>
+</html>
