@@ -74,27 +74,7 @@ var view = new Vue({
       type = "text/javascript"
       src = "https://unpkg.com/vue"></script>
     </script>
-    <script
-    type = "text/javascript">
-        var view = new Vue({
-            el:'#vue-view',
-            data:{
-                appName:'Basic Vue Project',
-                checkboxOne:false,
-                checkboxTwo:false,
-                list: [{name:"Can of Prickly Pear"},{name:"A Doubleshot Latte"}, {name:"ArcUser Magazine"}],
-                itemName: ''
-            },
-            methods:{
-              addToList: function(){
-                this.list.push({ name:this.itemName});
-              },
-              removeFromList: function(index){
-                this.list.splice(index,1);
-              }
-            }
-        });
-    </script>
+    <script type="text/javascript" src="../dist/main.js"></script>
   </script>
   </body>
 </html>
