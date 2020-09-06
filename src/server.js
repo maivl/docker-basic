@@ -12,6 +12,9 @@ const server = express();
 // Tell express that when it sees /public make it translate it to __dirname + /public
 server.use("/public", express.static(__dirname + "/../public"));
 
+// Tell express that when it sees /public make it translate it to __dirname + /public
+server.use("/dist", express.static(__dirname + "/../dist"));
+
 // Send neccessary files server->client
 server.get("/public/images/:id", (req, res) => {
   // log the activity to the server console
@@ -30,12 +33,12 @@ server.get("/public/css/:id", (req, res) => {
 });
 
 // Send neccessary files server->client
-server.get("/dist/main.js", (req, res) => {
+server.get("/dist/:id", (req, res) => {
   // log the activity to the server console
   console.log('server.get("/dist/main.js") [html request]');
   console.log(__dirname);
 
-  res.sendFile("../dist/main.js", { root: __dirname });
+  res.sendFile(__dirname + "/dist/" + req.params.id);
 });
 
 // Getting "/"
