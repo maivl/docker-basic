@@ -12,10 +12,10 @@ var view = new Vue({
     itemName: "",
   },
   methods: {
-    addToList: function () {
+    addToList: function() {
       this.list.push({ name: this.itemName });
     },
-    removeFromList: function (index) {
+    removeFromList: function(index) {
       this.list.splice(index, 1);
     },
   },
