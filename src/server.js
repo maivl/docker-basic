@@ -1,3 +1,4 @@
+var path = require("path");
 var express = require("express");
 
 // Get the port
@@ -7,13 +8,13 @@ const PORT = process.env.PORT || 3000;
 const server = express();
 
 // Set up server properties
-//server.use("/dist", express.static("dist/"));
+server.use("/dist", express.static("dist/"));
 
 // Tell express that when it sees /public make it translate it to __dirname + /public
 server.use("/public", express.static(__dirname + "/../public"));
 
 // Tell express that when it sees /public make it translate it to __dirname + /dist
-server.use("/dist", express.static(__dirname + "/../dist"));
+//server.use("/dist", express.static(__dirname + "/../dist"));
 
 // Send neccessary files server->client
 server.get("/public/images/:id", (req, res) => {
@@ -30,15 +31,6 @@ server.get("/public/css/:id", (req, res) => {
   console.log(__dirname);
 
   res.sendFile(__dirname + "/public/css/" + req.params.id);
-});
-
-// Send neccessary files server->client
-server.get("/dist/:id", (req, res) => {
-  // log the activity to the server console
-  console.log('server.get("/dist/:id") [html request]');
-  console.log(__dirname);
-
-  res.sendFile(__dirname + "/dist/" + req.params.id);
 });
 
 // Getting "/"
