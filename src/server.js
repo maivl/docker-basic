@@ -1,4 +1,3 @@
-var path = require("path");
 var express = require("express");
 
 // Get the port
@@ -11,27 +10,28 @@ const server = express();
 server.use("/dist", express.static("dist/"));
 
 // Tell express that when it sees /public make it translate it to __dirname + /public
-server.use("/public", express.static(__dirname + "/../public"));
+//server.use("/public", express.static(__dirname + "/../public"));
+server.use("/public", express.static("public/"));
 
 // Tell express that when it sees /public make it translate it to __dirname + /dist
 //server.use("/dist", express.static(__dirname + "/../dist"));
 
-// Send neccessary files server->client
-server.get("/public/images/:id", (req, res) => {
-  // log the activity to the server console
-  console.log('server.get("/public/images/:id") [html request]');
+// // Send neccessary files server->client
+// server.get("/public/images/:id", (req, res) => {
+//   // log the activity to the server console
+//   console.log('server.get("/public/images/:id") [html request]');
 
-  res.sendFile(__dirname + "/public/images" + req.params.id);
-});
+//   res.sendFile(__dirname + "/public/images" + req.params.id);
+// });
 
-// Send neccessary files server->client
-server.get("/public/css/:id", (req, res) => {
-  // log the activity to the server console
-  console.log('server.get("/public/css/:id") [html request]');
-  console.log(__dirname);
+// // Send neccessary files server->client
+// server.get("/public/css/:id", (req, res) => {
+//   // log the activity to the server console
+//   console.log('server.get("/public/css/:id") [html request]');
+//   console.log(__dirname);
 
-  res.sendFile(__dirname + "/public/css/" + req.params.id);
-});
+//   res.sendFile(__dirname + "/public/css/" + req.params.id);
+// });
 
 // Getting "/"
 server.get("/", (req, res) => {
