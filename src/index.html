@@ -64,7 +64,7 @@ var view = new Vue({
           <button v-on:click="addToList">Add Item ({{ list.length + 1 }})</button>
           <br/>
           <br/>
-          <div v-for="(item,index) in list"><button v-on:click="removeFromList(index)">-</button> <small>{{ index + 1 }}</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.name }}</div>
+          <div v-for="(item,index) in list" v-bind:key="item.name + item.index"><button v-on:click="removeFromList(index)">-</button> <small>{{ index + 1 }}</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.name }}</div>
           <br/>
           data.list = {{ list }}
         </div>
