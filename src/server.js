@@ -29,6 +29,15 @@ server.get("/public/css/:id", (req, res) => {
   res.sendFile(__dirname + "/public/css/" + req.params.id);
 });
 
+// Send neccessary files server->client
+server.get("/dist/main.js", (req, res) => {
+  // log the activity to the server console
+  console.log('server.get("/dist/main.js") [html request]');
+  console.log(__dirname);
+
+  res.sendFile("../dist/main.js", { root: __dirname });
+});
+
 // Getting "/"
 server.get("/", (req, res) => {
   console.log("get request to /");
