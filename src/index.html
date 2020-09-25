@@ -18,59 +18,6 @@
   <body>
       <div id="vue-view">
         <h1 v-cloak>{{ appName }}</h1>
-        <br/>
-        This Vue application is deployed to Heroku using Webpack (& Babel) during the build phase and then launches a Node.js server.
-        <br/>
-        <h3><u>Vue Instance</u></h3>
-          <pre>
-var view = new Vue({
-  el:'#vue-view',
-  data:{
-      appName:'Basic Vue Project',
-      checkboxOne:false,
-      checkboxTwo:false,
-      list: [{name:"Can of Prickly Pear"},{name:"A Doubleshot Latte"}, {name:"ArcUser Magazine"}],
-      itemName: ''
-  },
-  methods:{
-    addToList: function(){
-      this.list.push({ name:this.itemName});
-    },
-    removeFromList: function(index){
-      this.list.splice(index,1);
-    }
-  }
-});
-          </pre>
-        <h3><u>Data binding with v-model and conditional rendering with v-if</u></h3>
-        <div class="inlineblock">
-          <form class="inlineblock">
-            <div class="inlineblock">
-              <input class="inlineblock" type="checkbox" v-model="checkboxOne">
-            </div>
-          </form>
-          <div v-if="checkboxOne===true" class="inlineblock">First Checkbox Checked</div>
-        </div>
-        <br/>
-        <div class="inlineblock">
-          <form class="inlineblock">
-            <div class="inlineblock">
-              <input class="inlineblock" type="checkbox" v-model="checkboxTwo">
-            </div>
-          </form>
-          <div v-if="checkboxTwo===true" class="inlineblock">Second Checkbox Checked</div>
-        </div>
-        <br/>
-        <div>
-          <h3><u>List of Items</u></h3>
-          <input class="text" v-model="itemName">
-          <button v-on:click="addToList">Add Item ({{ list.length + 1 }})</button>
-          <br/>
-          <br/>
-          <div v-for="(item,index) in list" v-bind:key="item.name + item.index"><button v-on:click="removeFromList(index)">-</button> <small>{{ index + 1 }}</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.name }}</div>
-          <br/>
-          data.list = {{ list }}
-        </div>
       </div>
       
     <script
