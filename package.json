@@ -5,7 +5,7 @@
   "main": "./src/index.html",
   "scripts": {
     "start": "docker run -p 3000:3000 ydubler/nodetest:1",
-    "build": "docker build -f Dockerfile -t ydubler/nodetest:1 .",
+    "build": "curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh && docker build -f Dockerfile -t ydubler/nodetest:1 .",
     "buildStart": "webpack && node ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel"
