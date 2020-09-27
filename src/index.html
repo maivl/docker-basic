@@ -8,7 +8,7 @@
     <meta name="author" content="Yuri Dubler" />
     <meta name="description" content="First Vue Website" />
     <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Denk+One&family=Mallanna&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Mallanna&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet"> -->
     <!-- <link
       href="https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand&display=swap"
@@ -22,15 +22,30 @@
           <br/>
           The project contains a Dockerfile which creates an Image named "ydubler/nodetest:1" when we use the command:
           <br/>
-          <b>docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
+          <b class="fontRajdhani">docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
           <br/>Then that Image is used to create a running container, which is the Node server serving up this website, using the command:
           <br/>
-          <b>docker run -p 3000:3000 ydubler/nodetest:1</b>
+          <b class="fontRajdhani">docker run -p 3000:3000 -v $(pwd):/var/www ydubler/nodetest:1</b>
           <br/>
-          If you see this website, then the project is a success.
-          <br/>
-          :)
+          If you see this website, then the project is a success :)
         </div>
+        <br/>
+        <i>Dockerfile:</i>
+        <hr>
+        <pre>
+FROM node:latest
+LABEL author="Yuri Dubler"
+ENV NODE_ENV=production
+ENV PORT=3000
+COPY . /var/www
+WORKDIR /var/www
+RUN npm install
+#The following VOLUME definition might be unneccesary -- it is intended to show the format ["/var/www"]
+#VOLUME ["/var/www"]
+EXPOSE $PORT
+ENTRYPOINT ["npm", "run", "buildStart"]
+</pre>
+<hr>
       </div>
     <script
       type = "text/javascript"
