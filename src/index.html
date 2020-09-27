@@ -17,11 +17,22 @@
   </head>
   <body>
       <div id="vue-view">
-        <h1 v-cloak>{{ appName }} ha</h1>
+        <h1 v-cloak>{{ appName }}</h1>
         <br/>
-        <div>This website created an Image </div>
+        <div>This project is intended to get my feet wet with Docker.
+          <br/>
+          The project contains a Dockerfile which is built into the Image named "ydubler/nodetest:1" using the command:
+          <br/>
+          <b>docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
+          <br/>Then the ydubler/nodetest:1 Image is used to create a running container, which is the Node server serving up this website, using the command:
+          <br/>
+          <b>docker run -p 3000:3000 ydubler/nodetest:1</b>
+          <br/>
+          If you see this website, then the project is a success.
+          <br/>
+          :)
+        </div>
       </div>
-      
     <script
       type = "text/javascript"
       src = "https://unpkg.com/vue"></script>
