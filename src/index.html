@@ -18,8 +18,9 @@
   <body>
       <div id="vue-view">
         <h1 v-cloak>{{ appName }}</h1>
-        <div>This project is intended to get my feet wet with Docker.
+        <div>This project is intended to get my feet wet with Docker and to deploy a Docker based project to Heroku.
           <br/>
+          <b>ON A LOCALHOST MACHINE:</b>
           The project contains a Dockerfile which creates an Image named "ydubler/nodetest:1" when we use the command:
           <br/>
           <b class="fontRajdhani">docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
@@ -27,7 +28,13 @@
           <br/>
           <b class="fontRajdhani">docker run -p 3000:3000 -v $(pwd):/var/www ydubler/nodetest:1</b>
           <br/>
-          If you see this website, then the project is a success :)
+          <b>DEPLOYING TO HEROKU:</b>
+          <br/>
+          Deploying this project to Heroku required steps that can be seen here <a href="">https://devcenter.heroku.com/articles/container-registry-and-runtime</a>
+          <br/>
+          Essentially, we build the Dockerfile locally (as shown above) and then use the Heroku CLI to push it to Heroku where it is launched automatically.
+          <br/>
+          If you see this website, then this project is a success :)
         </div>
         <br/>
         <i>Dockerfile:</i>
