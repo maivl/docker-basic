@@ -4,20 +4,22 @@
   "description": "A basic Vue website.",
   "main": "./src/index.html",
   "scripts": {
+    "start": "node src/server.js",
+    "build": "webpack",
     "buildStart": "webpack && node ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ydubler/basic-vue-app.git"
+    "url": "git+https://github.com/ydubler/docker-basic.git"
   },
   "author": "Yuri Dubler",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ydubler/basic-vue-app/issues"
+    "url": "https://github.com/ydubler/docker-basic/issues"
   },
-  "homepage": "https://github.com/ydubler/basic-vue-app#readme",
+  "homepage": "https://github.com/ydubler/docker-basic#readme",
   "dependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
