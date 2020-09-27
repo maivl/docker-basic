@@ -40,4 +40,4 @@ server.get("/", (req, res) => {
   res.sendFile("index.html", { root: __dirname });
 });
 
-server.listen(PORT, console.log("Server on."));
+server.listen(PORT, console.log("Server running on port " + PORT + "."));
