@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>First Vue Website</title>
-    <meta name="charset" content="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Yuri Dubler" />
-    <meta name="description" content="First Vue Website" />
-    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Mallanna&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet"> -->
-    <!-- <link
+
+<head>
+  <title>Basic Docker Container</title>
+  <meta name="charset" content="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Yuri Dubler" />
+  <meta name="description" content="Basic Docker Container" />
+  <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Mallanna&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet"> -->
+  <!-- <link
       href="https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand&display=swap"
       rel="stylesheet"
     /> -->
-  </head>
-  <body>
-      <div id="vue-view">
-        <h1 v-cloak>{{ appName }}</h1>
-        <div>This project is intended to get my feet wet with Docker and to deploy a Docker based project to Heroku.
-          <br/>
-          <b>ON A LOCALHOST MACHINE:</b>
-          The project contains a Dockerfile which creates an Image named "ydubler/nodetest:1" when we use the command:
-          <br/>
-          <b class="fontRajdhani">docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
-          <br/>Then that Image is used to create a running container, which is the Node server serving up this website, using the command:
-          <br/>
-          <b class="fontRajdhani">docker run -p 3000:3000 -v $(pwd):/var/www ydubler/nodetest:1</b>
-          <br/>
-          <b>DEPLOYING TO HEROKU:</b>
-          <br/>
-          Deploying this project to Heroku required steps that can be seen here <a href="">https://devcenter.heroku.com/articles/container-registry-and-runtime</a>
-          <br/>
-          Essentially, we build the Dockerfile locally (as shown above) and then use the Heroku CLI to push it to Heroku where it is launched automatically.
-          <br/>
-          If you see this website, then this project is a success :)
-        </div>
-        <br/>
-        <i>Dockerfile:</i>
-        <hr>
-        <pre>
+</head>
+
+<body>
+  <div id="vue-view">
+    <h1 v-cloak>{{ appName }}</h1>
+    <div>This project is intended to get my feet wet with Docker and to deploy a Docker based project to Heroku.
+      <br />
+      <b>ON A LOCALHOST MACHINE:</b>
+      <br/>
+      The project contains a Dockerfile which creates an Image named "ydubler/nodetest:1" when we use the command:
+      <br />
+      <b class="fontRajdhani">docker build -f Dockerfile -t ydubler/nodetest:1 .</b>
+      <br />Then that Image is used to create a running container, which is the Node server serving up this website,
+      using the command:
+      <br />
+      <b class="fontRajdhani">docker run -p 3000:3000 -v $(pwd):/var/www ydubler/nodetest:1</b>
+      <br />
+      <b>DEPLOYING TO HEROKU:</b>
+      <br />
+      Deploying this project to Heroku required steps that can be seen here <a
+        href="">https://devcenter.heroku.com/articles/container-registry-and-runtime</a>
+      <br />
+      Essentially, we build the Dockerfile locally (as shown above) and then use the Heroku CLI to push it to Heroku
+      where it is launched automatically.
+      <br />
+      If you see this website, then this project is a success :)
+    </div>
+    <br />
+    <i>Dockerfile:</i>
+    <hr>
+    <pre>
 FROM node:latest
 LABEL author="Yuri Dubler"
 ENV NODE_ENV=production
@@ -52,13 +58,12 @@ RUN npm install
 EXPOSE $PORT
 ENTRYPOINT ["npm", "run", "buildStart"]
 </pre>
-<hr>
-      </div>
-    <script
-      type = "text/javascript"
-      src = "https://unpkg.com/vue"></script>
-    </script>
-    <script type="text/javascript" src="../dist/main.js"></script>
+    <hr>
+  </div>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
   </script>
-  </body>
+  <script type="text/javascript" src="../dist/main.js"></script>
+  </script>
+</body>
+
 </html>
